@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Orbitron", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Rajdhani", ui-sans-serif, system-ui, sans-serif;
+
+  --color-void: #05070d;
+  --color-void-2: #0a0f1e;
+  --color-cyan: #2de2ff;
+  --color-cyan-dim: #145b66;
+  --color-magenta: #ff3df0;
+  --color-magenta-dim: #6a1a63;
+  --color-gold: #ffb02e;
+  --color-gold-dim: #6b4c17;
+  --color-danger: #ff3b4e;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  background: var(--color-void);
+  color: #e8f6ff;
+  font-family: var(--font-body);
+  overscroll-behavior: none;
+  color-scheme: dark;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+/* Reusable cyberpunk overlay motifs (dead-end sequence, transitions) */
+.fx-scanlines {
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.05) 0px,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode: overlay;
+}
+
+.fx-glitch {
+  animation: fx-glitch-shift 220ms steps(2, end) 3;
+}
+
+@keyframes fx-glitch-shift {
+  0% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0, 0);
+  }
+  20% {
+    clip-path: inset(10% 0 60% 0);
+    transform: translate(-6px, 0);
+  }
+  40% {
+    clip-path: inset(60% 0 5% 0);
+    transform: translate(6px, 0);
+  }
+  60% {
+    clip-path: inset(30% 0 40% 0);
+    transform: translate(-4px, 0);
+  }
+  80% {
+    clip-path: inset(5% 0 70% 0);
+    transform: translate(4px, 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0, 0);
+  }
+}
+
+/* Node / edge idle-vs-reachable breathing pulses */
+.node-pulse-idle {
+  animation: node-breathe 3.2s ease-in-out infinite;
+}
+.node-pulse-legal {
+  animation: node-breathe-legal 1.1s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.node-pulse-current {
+  animation: node-breathe-current 1.6s ease-in-out infinite;
+}
+
+@keyframes node-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes node-breathe-legal {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes node-breathe-current {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.edge-pulse-legal {
+  animation: edge-glow-pulse 1.1s ease-in-out infinite;
+}
+
+@keyframes edge-glow-pulse {
+  0%,
+  100% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 1;
+  }
+}
