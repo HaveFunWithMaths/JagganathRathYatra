@@ -10,7 +10,7 @@ export interface ViewBoxConfig {
 
 const VIEWBOX: Record<Level['id'], ViewBoxConfig> = {
   easy: { width: 800, height: 800, padX: 100, padY: 100 },
-  hard: { width: 1400, height: 560, padX: 110, padY: 110 },
+  hard: { width: 800, height: 800, padX: 100, padY: 100 },
 }
 
 export function getViewBoxConfig(levelId: Level['id']): ViewBoxConfig {

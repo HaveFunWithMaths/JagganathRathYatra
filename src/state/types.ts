@@ -29,4 +29,6 @@ export interface GameState {
   traversed: Set<EdgeId>
   history: Move[]
   pendingMove: PendingMove | null
+  musicEnabled: boolean
+  soundEnabled: boolean
 }

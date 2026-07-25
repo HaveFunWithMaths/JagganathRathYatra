@@ -24,12 +24,12 @@ export function GameScreen() {
 
   return (
     <div className="relative flex h-dvh w-full flex-col bg-void md:flex-row">
-      <div className="relative min-h-0 flex-1 pb-20 md:pb-0">
+      <div className="relative min-h-0 flex-1 pt-28 pb-20 md:py-0">
         <GraphCanvas panZoomEnabled={panZoomEnabled} onSequenceComplete={() => setRevealEnd(true)} />
 
         {phase === 'awaitStart' && (
-          <div className="pointer-events-none absolute inset-x-0 top-4 z-10 flex justify-center px-4">
-            <div className="rounded-full border border-magenta/40 bg-void/80 px-5 py-2 font-display text-sm tracking-widest text-magenta backdrop-blur">
+          <div className="pointer-events-none absolute inset-x-0 top-34 z-10 flex justify-center px-4 md:top-6">
+            <div className="rounded-full border border-magenta/40 bg-void/80 px-5 py-2 font-display text-sm tracking-widest text-magenta backdrop-blur shadow-[0_0_15px_rgba(255,45,149,0.3)]">
               PICK A STARTING NODE
             </div>
           </div>

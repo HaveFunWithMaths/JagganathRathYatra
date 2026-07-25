@@ -10,9 +10,10 @@ export function UndoButton() {
     <button
       onClick={undo}
       disabled={disabled}
-      className="rounded-lg border border-cyan/40 bg-void-2 px-4 py-2.5 font-display text-sm font-bold tracking-widest text-cyan transition-opacity disabled:opacity-30"
+      className="flex w-full items-center justify-center rounded-xl border border-cyan/60 bg-cyan/15 px-4 py-2 font-display text-sm font-bold tracking-widest text-cyan shadow-[0_0_12px_rgba(45,226,255,0.25)] transition-all hover:bg-cyan/25 active:scale-95 disabled:opacity-30 disabled:pointer-events-none"
     >
-      UNDO
+      <span className="text-base">↩️</span>
+      <span>UNDO</span>
     </button>
   )
 }

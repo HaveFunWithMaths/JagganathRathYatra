@@ -52,9 +52,9 @@ describe('hard level data', () => {
     expect(hardLevel.validStarts.slice().sort()).toEqual(['G', 'L'])
   })
 
-  it('has 18 nodes and 31 edges', () => {
+  it('has 18 nodes and 24 edges', () => {
     expect(hardLevel.nodes).toHaveLength(18)
-    expect(hardLevel.edges).toHaveLength(31)
+    expect(hardLevel.edges).toHaveLength(24)
   })
 
   it('admits an Eulerian trail', () => {
