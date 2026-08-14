@@ -20,7 +20,7 @@ export function GameScreen() {
 
   if (!mode || !level) return null
 
-  const panZoomEnabled = isMobile && mode === 'hard'
+  const panZoomEnabled = isMobile && (mode === 'medium' || mode === 'hard')
 
   return (
     <div className="relative flex h-dvh w-full flex-col bg-void md:flex-row">

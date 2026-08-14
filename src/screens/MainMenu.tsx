@@ -1,4 +1,5 @@
 import { easyLevel } from '../levels/easy'
+import { mediumLevel } from '../levels/medium'
 import { hardLevel } from '../levels/hard'
 import { useGameStore } from '../state/gameStore'
 
@@ -41,7 +42,7 @@ export function MainMenu() {
         </button>
       </div>
 
-      <div className="relative z-10 flex w-full max-w-md flex-col items-center gap-6">
+      <div className="relative z-10 flex w-full max-w-lg flex-col items-center gap-6">
         {/* Title */}
         <div>
           <h1 className="font-display text-3xl font-black tracking-wider text-cyan drop-shadow-[0_0_20px_rgba(45,226,255,0.6)] sm:text-5xl">
@@ -66,12 +67,12 @@ export function MainMenu() {
         </div>
 
         {/* Mode Selection Buttons directly on Main Menu */}
-        <div className="flex w-full flex-col gap-4 sm:flex-row">
+        <div className="flex w-full flex-col gap-3 sm:flex-row">
           <button
             onClick={() => selectMode('easy')}
-            className="group relative flex-1 rounded-xl border-2 border-cyan bg-cyan/10 px-6 py-4 text-center transition-all hover:bg-cyan/20 active:scale-95 shadow-[0_0_20px_rgba(45,226,255,0.3)]"
+            className="group relative flex-1 rounded-xl border-2 border-cyan bg-cyan/10 px-4 py-3 text-center transition-all hover:bg-cyan/20 active:scale-95 shadow-[0_0_20px_rgba(45,226,255,0.3)]"
           >
-            <div className="font-display text-xl font-black tracking-widest text-cyan">
+            <div className="font-display text-lg font-black tracking-widest text-cyan">
               EASY MODE
             </div>
             <div className="mt-1 font-body text-xs text-cyan-100/70">
@@ -80,10 +81,22 @@ export function MainMenu() {
           </button>
 
           <button
-            onClick={() => selectMode('hard')}
-            className="group relative flex-1 rounded-xl border-2 border-magenta bg-magenta/10 px-6 py-4 text-center transition-all hover:bg-magenta/20 active:scale-95 shadow-[0_0_20px_rgba(255,61,240,0.3)]"
+            onClick={() => selectMode('medium')}
+            className="group relative flex-1 rounded-xl border-2 border-gold bg-gold/10 px-4 py-3 text-center transition-all hover:bg-gold/20 active:scale-95 shadow-[0_0_20px_rgba(255,176,46,0.3)]"
           >
-            <div className="font-display text-xl font-black tracking-widest text-magenta">
+            <div className="font-display text-lg font-black tracking-widest text-gold">
+              MEDIUM MODE
+            </div>
+            <div className="mt-1 font-body text-xs text-cyan-100/70">
+              {mediumLevel.nodes.length} Nodes · {mediumLevel.edges.length} Edges
+            </div>
+          </button>
+
+          <button
+            onClick={() => selectMode('hard')}
+            className="group relative flex-1 rounded-xl border-2 border-magenta bg-magenta/10 px-4 py-3 text-center transition-all hover:bg-magenta/20 active:scale-95 shadow-[0_0_20px_rgba(255,61,240,0.3)]"
+          >
+            <div className="font-display text-lg font-black tracking-widest text-magenta">
               HARD MODE
             </div>
             <div className="mt-1 font-body text-xs text-cyan-100/70">

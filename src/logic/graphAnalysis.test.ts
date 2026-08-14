@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { easyLevel } from '../levels/easy'
+import { mediumLevel } from '../levels/medium'
 import { hardLevel } from '../levels/hard'
 import {
   arcPathWithGap,
@@ -46,15 +47,39 @@ describe('easy level data', () => {
   })
 })
 
-describe('hard level data', () => {
+describe('medium level data', () => {
   it('marks only G and L as odd-degree (valid start/end) nodes', () => {
-    expect(oddDegreeNodes(hardLevel).sort()).toEqual(['G', 'L'])
-    expect(hardLevel.validStarts.slice().sort()).toEqual(['G', 'L'])
+    expect(oddDegreeNodes(mediumLevel).sort()).toEqual(['G', 'L'])
+    expect(mediumLevel.validStarts.slice().sort()).toEqual(['G', 'L'])
   })
 
   it('has 18 nodes and 24 edges', () => {
+    expect(mediumLevel.nodes).toHaveLength(18)
+    expect(mediumLevel.edges).toHaveLength(24)
+  })
+
+  it('admits an Eulerian trail', () => {
+    expect(hasEulerianTrail(mediumLevel)).toBe(true)
+  })
+
+  it('is solvable via Hierholzer from each valid start', () => {
+    for (const start of mediumLevel.validStarts) {
+      const trail = findEulerianTrail(mediumLevel, start)
+      expect(trail).not.toBeNull()
+      expect(trail).toHaveLength(mediumLevel.edges.length)
+    }
+  })
+})
+
+describe('hard level data', () => {
+  it('marks only A1 and D1 as odd-degree (valid start/end) nodes', () => {
+    expect(oddDegreeNodes(hardLevel).sort()).toEqual(['A1', 'D1'])
+    expect(hardLevel.validStarts.slice().sort()).toEqual(['A1', 'D1'])
+  })
+
+  it('has 18 nodes and 21 edges', () => {
     expect(hardLevel.nodes).toHaveLength(18)
-    expect(hardLevel.edges).toHaveLength(24)
+    expect(hardLevel.edges).toHaveLength(21)
   })
 
   it('admits an Eulerian trail', () => {

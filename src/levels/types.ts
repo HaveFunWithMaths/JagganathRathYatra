@@ -19,7 +19,7 @@ export interface LevelEdge {
 }
 
 export interface Level {
-  id: 'easy' | 'hard'
+  id: 'easy' | 'medium' | 'hard'
   label: string
   nodes: LevelNode[]
   edges: LevelEdge[]

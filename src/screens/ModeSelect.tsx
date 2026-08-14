@@ -1,5 +1,6 @@
-import { hardLevel } from '../levels/hard'
 import { easyLevel } from '../levels/easy'
+import { mediumLevel } from '../levels/medium'
+import { hardLevel } from '../levels/hard'
 import { useGameStore } from '../state/gameStore'
 
 const MODES = [
@@ -8,6 +9,12 @@ const MODES = [
     level: easyLevel,
     accent: 'text-cyan border-cyan shadow-[0_0_24px_rgba(45,226,255,0.35)]',
     description: `${easyLevel.nodes.length} nodes · ${easyLevel.edges.length} edges`,
+  },
+  {
+    id: 'medium' as const,
+    level: mediumLevel,
+    accent: 'text-gold border-gold shadow-[0_0_24px_rgba(255,176,46,0.35)]',
+    description: `${mediumLevel.nodes.length} nodes · ${mediumLevel.edges.length} edges`,
   },
   {
     id: 'hard' as const,
@@ -27,15 +34,15 @@ export function ModeSelect() {
         SELECT MODE
       </h2>
 
-      <div className="flex w-full max-w-3xl flex-col gap-6 sm:flex-row">
+      <div className="flex w-full max-w-4xl flex-col gap-6 sm:flex-row">
         {MODES.map((mode) => (
           <button
             key={mode.id}
             onClick={() => selectMode(mode.id)}
-            className={`flex-1 rounded-2xl border-2 bg-void-2/60 px-8 py-10 text-center transition-transform active:scale-95 ${mode.accent}`}
+            className={`flex-1 rounded-2xl border-2 bg-void-2/60 px-6 py-8 text-center transition-transform active:scale-95 ${mode.accent}`}
           >
-            <div className="font-display text-3xl font-black uppercase tracking-widest">{mode.level.label}</div>
-            <div className="mt-3 font-body text-base text-cyan-100/70">{mode.description}</div>
+            <div className="font-display text-2xl font-black uppercase tracking-widest">{mode.level.label}</div>
+            <div className="mt-3 font-body text-sm text-cyan-100/70">{mode.description}</div>
           </button>
         ))}
       </div>
